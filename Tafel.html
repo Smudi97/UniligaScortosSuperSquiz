@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Scortos Super Squiz</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <img src="./BackgroundTafel.png">
+  <table class="Themen">
+    <tr>
+      <td class="ThemenTitel" id="Thema1Titel"></td>
+      <td class="ThemenTitel" id="Thema2Titel"></td>
+      <td class="ThemenTitel" id="Thema3Titel"></td>
+      <td class="ThemenTitel" id="Thema4Titel"></td>
+      <td class="ThemenTitel" id="Thema5Titel"></td>
+    </tr>
+  </table>
+  <table class="PunkteTabelle">
+    <tr>
+      <td id="Thema1Frage1Punkte"></td>
+      <td id="Thema2Frage1Punkte"></td>
+      <td id="Thema3Frage1Punkte"></td>
+      <td id="Thema4Frage1Punkte"></td>
+      <td id="Thema5Frage1Punkte"></td>
+    </tr>
+    <tr>
+      <td id="Thema1Frage2Punkte"></td>
+      <td id="Thema2Frage2Punkte"></td>
+      <td id="Thema3Frage2Punkte"></td>
+      <td id="Thema4Frage2Punkte"></td>
+      <td id="Thema5Frage2Punkte"></td>
+    </tr>
+    <tr>
+      <td id="Thema1Frage3Punkte"></td>
+      <td id="Thema2Frage3Punkte"></td>
+      <td id="Thema3Frage3Punkte"></td>
+      <td id="Thema4Frage3Punkte"></td>
+      <td id="Thema5Frage3Punkte"></td>
+    </tr>
+    <tr>
+      <td id="Thema1Frage4Punkte"></td>
+      <td id="Thema2Frage4Punkte"></td>
+      <td id="Thema3Frage4Punkte"></td>
+      <td id="Thema4Frage4Punkte"></td>
+      <td id="Thema5Frage4Punkte"></td>
+    </tr>
+    <tr>
+      <td id="Thema1Frage5Punkte"></td>
+      <td id="Thema2Frage5Punkte"></td>
+      <td id="Thema3Frage5Punkte"></td>
+      <td id="Thema4Frage5Punkte"></td>
+      <td id="Thema5Frage5Punkte"></td>
+    </tr>
+  </table>
+  <table class="TeilnehmerTabelle">
+    <tr class="TeilnehmerNamenZeile">
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer1Name"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer2Name"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer3Name"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer4Name"></td>
+    </tr>
+    <tr class="TeilnehmerPunkteZeile">
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer1PunkteTotal"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer2PunkteTotal"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer3PunkteTotal"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer4PunkteTotal"></td>
+    </tr>
+  </table>
+  <span id="HostName"></span>
+
+    <!-- JAVASCRIPT STUFF -->
+    <script src="./Updater.js"></script>
+    <script src="./regex-operation.js"></script>
+    <script>
+        const settings = {
+            'string': {
+              'B51' :'Thema1Frage1Punkte',
+              'B52' :'Thema1Frage2Punkte',
+              'B53' :'Thema1Frage3Punkte',
+              'B54' :'Thema1Frage4Punkte',
+              'B55' :'Thema1Frage5Punkte',
+              'B56' :'Thema2Frage1Punkte',
+              'B57' :'Thema2Frage2Punkte',
+              'B58' :'Thema2Frage3Punkte',
+              'B59' :'Thema2Frage4Punkte',
+              'B60' :'Thema2Frage5Punkte',
+              'B61' :'Thema3Frage1Punkte',
+              'B62' :'Thema3Frage2Punkte',
+              'B63' :'Thema3Frage3Punkte',
+              'B64' :'Thema3Frage4Punkte',
+              'B65' :'Thema3Frage5Punkte',
+              'B66' :'Thema4Frage1Punkte',
+              'B67' :'Thema4Frage2Punkte',
+              'B68' :'Thema4Frage3Punkte',
+              'B69' :'Thema4Frage4Punkte',
+              'B70' :'Thema4Frage5Punkte',
+              'B71' :'Thema5Frage1Punkte',
+              'B72' :'Thema5Frage2Punkte',
+              'B73' :'Thema5Frage3Punkte',
+              'B74' :'Thema5Frage4Punkte',
+              'B75' :'Thema5Frage5Punkte',
+              'B76' :'AktuelleFrage',
+              'B77' :'AktuelleAntwort',
+              'B78' :'Teilnehmer1Name',
+              'B79' :'Teilnehmer2Name',
+              'B80' :'Teilnehmer3Name',
+              'B81' :'Teilnehmer4Name',
+              'B82' :'Teilnehmer1PunkteTotal',
+              'B83' :'Teilnehmer2PunkteTotal',
+              'B84' :'Teilnehmer3PunkteTotal',
+              'B85' :'Teilnehmer4PunkteTotal',
+              'B86' :'Thema1Titel',
+              'B87' :'Thema2Titel',
+              'B88' :'Thema3Titel',
+              'B89' :'Thema4Titel',
+              'B90' :'Thema5Titel',
+              'B91' :'HostName',
+        }}
+
+        const spreadsheetID = '18IYecpmLI1EXnl-YPBDRlFvhOFxoKanM5t5Hx_fDftQ';
+        const worksheetName = 'Output html';
+        const apiKey = "AIzaSyCpf1Yn1B7b4P9W5sazp6EcfgDM0Ati2Zg";
+        const updateInterval = 2000;
+
+        const u = new GraphicsUpdater(settings, spreadsheetID, worksheetName, apiKey, updateInterval, false);
+        u.addOperation('regex', regexOperation);
+        u.startUpdating();
+    </script>
+</body>
