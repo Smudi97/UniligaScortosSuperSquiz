@@ -4,7 +4,7 @@
 <head>
 
     <title>Scortos Super Squiz Frage/Antwort Ansicht</title>
-    <link rel="stylesheet" href="./FrageAntwortStyle.css">
+    <link rel="stylesheet" href="./FrageStyle.css">
 
 </head>
 
@@ -12,7 +12,7 @@
   <img src="./BackgroundFrage.png">
   <div class="FrageAntwortBox">
     <span id="AktuelleFrage"></span>
-    <span id="AktuelleAntwort"></span>
+    <span id="Platzhalter"> </span>
   </div>
   <table class="TeilnehmerTabelle">
     <tr class="TeilnehmerNamenZeile">
@@ -43,7 +43,6 @@
         const settings = {
             'string': {
               'B76' :'AktuelleFrage',
-              'B77' :'AktuelleAntwort',
               'B78' :'Teilnehmer1Name',
               'B79' :'Teilnehmer2Name',
               'B80' :'Teilnehmer3Name',

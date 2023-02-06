@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Scortos Super Squiz Frage/Antwort Ansicht</title>
+    <link rel="stylesheet" href="./AntwortStyle.css">
+
+</head>
+
+<body>
+  <!-- <img src="./BackgroundFrage.png"> -->
+  <div class="FrageAntwortBox">
+    <span id="Platzhalter">  </span>
+    <span id="AktuelleAntwort"></span>
+  </div>
+
+    <!-- JAVASCRIPT STUFF -->
+    <script src="./Updater.js"></script>
+    <script src="./regex-operation.js"></script>
+    <script>
+        const settings = {
+            'string': {
+              'B77' :'AktuelleAntwort',
+        }}
+
+        const spreadsheetID = '18IYecpmLI1EXnl-YPBDRlFvhOFxoKanM5t5Hx_fDftQ';
+        const worksheetName = 'Output html';
+        const apiKey = "AIzaSyCpf1Yn1B7b4P9W5sazp6EcfgDM0Ati2Zg";
+        const updateInterval = 2000;
+
+        const u = new GraphicsUpdater(settings, spreadsheetID, worksheetName, apiKey, updateInterval, false);
+        u.addOperation('regex', regexOperation);
+        u.startUpdating();
+    </script>
+</body>
