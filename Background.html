@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Scortos Super Squiz Frage/Antwort Ansicht</title>
+    <link rel="stylesheet" href="./Background.css">
+
+</head>
+
+<body>
+  <img src="./BackgroundFrage.png">
+  <table class="TeilnehmerTabelle">
+    <tr class="TeilnehmerNamenZeile">
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer1Name"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer2Name"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer3Name"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer4Name"></td>
+    </tr>
+    <tr class="TeilnehmerPunkteZeile">
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer1PunkteTotal"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer2PunkteTotal"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer3PunkteTotal"></td>
+      <td class="TeilnehmerNamenFillerZelle"></td>
+      <td class="TeilnehmerNamenZelle" id="Teilnehmer4PunkteTotal"></td>
+    </tr>
+  </table>
+  <span id="HostName"></span>
+
+    <!-- JAVASCRIPT STUFF -->
+    <script src="./Updater.js"></script>
+    <script src="./regex-operation.js"></script>
+    <script>
+        const settings = {
+            'string': {
+              'B78' :'Teilnehmer1Name',
+              'B79' :'Teilnehmer2Name',
+              'B80' :'Teilnehmer3Name',
+              'B81' :'Teilnehmer4Name',
+              'B82' :'Teilnehmer1PunkteTotal',
+              'B83' :'Teilnehmer2PunkteTotal',
+              'B84' :'Teilnehmer3PunkteTotal',
+              'B85' :'Teilnehmer4PunkteTotal',
+              'B91' :'HostName',
+        }}
+
+        const spreadsheetID = '18IYecpmLI1EXnl-YPBDRlFvhOFxoKanM5t5Hx_fDftQ';
+        const worksheetName = 'Output html';
+        const apiKey = "AIzaSyCpf1Yn1B7b4P9W5sazp6EcfgDM0Ati2Zg";
+        const updateInterval = 2000;
+
+        const u = new GraphicsUpdater(settings, spreadsheetID, worksheetName, apiKey, updateInterval, false);
+        u.addOperation('regex', regexOperation);
+        u.startUpdating();
+    </script>
+</body>
